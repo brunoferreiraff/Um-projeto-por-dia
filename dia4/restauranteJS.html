@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante JS</title>
+</head>
+<body>
+    <h1>Restaurante JS</h1>
+
+    <form action="">
+        <p>Buffet quilo: R$ <input type="number" id="precoQuilo" min="0" step="0.01" required></p>
+        <p>Consumo do Cliente: (gr) <input type="number" id="gramas" min="0" required></p>
+
+        <input type="submit" value="Calcular Preço">
+
+        
+
+    </form>
+    <h3></h3>
+
+    <script>
+        const frm = document.querySelector("form"); //seleciona o form
+        const resp = document.querySelector("h3"); //seleciona onde a resposta sairá
+
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const quilo = Number(frm.precoQuilo.value); //pega o valor de precoQuilo
+            const gramas = Number(frm.gramas.value); //pega o valor de gramas
+
+            const valorTotal = (quilo / 1000) * gramas ;// pego o preço do quilo, calculo quanto custa a grama e então multiplico por quantas gramas foi o prato do cliente
+            resp.innerText = `O valor do quilo é de R$ ${quilo} e o prato do cliente deu um total de R$ ${valorTotal}` //Mostro a resposta no H3 que já foi selecionado anteriormente
+
+            
+        })
+    </script>
+</body>
+</html>

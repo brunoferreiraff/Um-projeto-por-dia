@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lan House - JS</title>
+</head>
+<body>
+    <h1>Lan House - JS</h1>
+
+    <form action="">
+        <p> Valor por 15 min de Uso R$ : <input type="number" id="inValor" step="0.01" required></p>
+        <p>Tempo de Uso cliente: <input type="number" id="inTempo" required></p>
+
+        <input type="submit" value="Calcular valor a pagar">
+
+        
+    </form>
+    <h3></h3>
+
+    <script>
+        const frm = document.querySelector("form");
+        const resp = document.querySelector("h3");
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const valor = frm.inValor.value;
+            const time = frm.inTempo.value;
+
+            const tempo = Math.ceil(time / 15)
+            const valorTotal = tempo * valor
+
+            console.log(tempo)
+
+
+           resp.innerText = `Valor a pagar R$ : ${valorTotal}`
+
+
+        })
+    </script>
+</body>
+</html>
